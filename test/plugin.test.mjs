@@ -11,8 +11,8 @@ const tool = toolConfig();
 test("工具配置形状齐（name/description/parameters/output/execute）", () => {
   assert.equal(tool.name, TOOL_NAME);
   assert.ok(tool.description.length > 20);
-  assert.equal(tool.parameters.root.type, "string");
-  assert.equal(tool.parameters.root.required, false);
+  assert.deepEqual(tool.parameters, {}, "参数必须是空对象：宿主 schema 不接受 required:false");
+  assert.ok(!JSON.stringify(tool.parameters).includes("required"));
   assert.equal(typeof tool.execute, "function");
   assert.deepEqual(tool.output.render({}, "x"), [{ type: "text", text: "x" }]);
 });
