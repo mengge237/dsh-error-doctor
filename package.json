@@ -1,14 +1,43 @@
 {
   "name": "dsh-error-doctor",
-  "version": "0.1.0",
+  "version": "0.2.0",
   "description": "只读体检：已安装的 DSH 里，403 额度类失败还会不会被判成密钥无效",
   "type": "module",
   "main": "lib/probe.mjs",
-  "exports": { ".": "./lib/probe.mjs", "./package.json": "./package.json" },
-  "bin": { "dsh-error-doctor": "bin/dsh-error-doctor.mjs" },
-  "engines": { "node": ">=18" },
-  "files": ["bin", "lib", "README.md"],
-  "scripts": { "test": "node test/doctor.test.mjs" },
+  "exports": {
+    ".": "./lib/index.js",
+    "./plugin-config": "./lib/plugin-config.mjs",
+    "./package.json": "./package.json"
+  },
+  "bin": {
+    "dsh-error-doctor": "bin/dsh-error-doctor.mjs"
+  },
+  "engines": {
+    "node": ">=18"
+  },
+  "files": [
+    "bin",
+    "lib",
+    "cordis.patch.yml",
+    "README.md",
+    "LICENSE"
+  ],
+  "scripts": {
+    "test": "node test/doctor.test.mjs"
+  },
   "license": "MIT",
-  "keywords": ["dsh", "deepseek-harness", "error-classification", "doctor"]
+  "keywords": [
+    "dsh",
+    "deepseek-harness",
+    "error-classification",
+    "doctor"
+  ],
+  "dsh": {
+    "bundle": {
+      "patch": "./cordis.patch.yml"
+    },
+    "engines": {
+      "dsh": ">=0.1.5-rc.2"
+    }
+  }
 }
