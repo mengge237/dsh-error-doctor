@@ -1,6 +1,6 @@
 {
   "name": "dsh-error-doctor",
-  "version": "0.2.1",
+  "version": "0.2.2",
   "description": "只读体检：已安装的 DSH 里，403 额度类失败还会不会被判成密钥无效",
   "type": "module",
   "main": "lib/probe.mjs",
